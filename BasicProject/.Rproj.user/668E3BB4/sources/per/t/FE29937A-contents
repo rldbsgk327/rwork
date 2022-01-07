@@ -1,0 +1,113 @@
+---
+title: "Suicide"
+author: "yoonha"
+date: '2021 10 15 '
+output: html_document
+---
+
+# 자살방지를 위한 도움의 손길은 누구에게?
+
+```{r}
+library(dplyr)
+```
+### 1. 데이터 불러오기
+```{r}
+data <- read.csv("../data/2019_suicide.csv")
+data
+str(data)
+
+
+
+
+```
+
+### 2. 데이터 수집
++ 남자데이터와 여자데이터로 구분
+```{r}
+man <- data[22:40, c(3,4,5)]
+man
+
+woman <- data[41:59, c(4,5)]
+woman
+
+
+total <- cbind(man, woman)
+total
+```
+
+### 3. 전처리
+
++ 컬럼명 변경
+```{r}
+
+names(total) <-c("연령", "남자사망자수", "남자사망률", "여자사망자수", "여자사망률")
+total
+
+```
+
+
+
+
+
+
++ 연령을 5살 텀으로 변경(카테고리 변경 용이)
+```{r}
+
+total$age<- 0
+step<-5
+for(i in 1:19){
+  total[i, "age"] <- step
+  step <- step+5
+}
+
+total
+
+```
+
+
+
+
+
+
+
++ Binning(10대, 20대, 30대, ..)
+```{r}
+
+total$age2[total$age<=20] <-10
+total$age2[total$age>20 & total$age<=30] <-20
+total$age2[total$age>30 & total$age<=40] <-30
+total$age2[total$age>40 & total$age<=50] <-40
+total$age2[total$age>50 & total$age<=60] <-50
+total$age2[total$age>60 & total$age<=70] <-60
+total$age2[total$age>70 & total$age<=80] <-70
+total$age2[total$age>80 & total$age<=90] <-80
+total$age2[total$age>90] <-90
+
+total
+
+
+
+```
+
+### 4. 데이터분석
+
++ 표준편차
+```{r}
+
+total %>% group_by(age2) %>% summarise(sd_man=sd(남자사망률), sd_woman=sd(여자사망률))
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+

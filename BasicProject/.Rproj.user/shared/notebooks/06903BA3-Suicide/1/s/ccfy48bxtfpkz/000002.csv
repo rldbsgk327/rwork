@@ -1,0 +1,12 @@
+"0","total %>% group_by(age2) %>% summarise(sd_man=sd(남자사망률), sd_woman=sd(여자사망률))
+"
+"2","Warning in var(if (is.vector(x) || is.factor(x)) x else as.double(x), na.rm = na.rm) :"
+"2","
+ "
+"2"," NAs introduced by coercion
+"
+"2","Warning in var(if (is.vector(x) || is.factor(x)) x else as.double(x), na.rm = na.rm) :"
+"2","
+ "
+"2"," NAs introduced by coercion
+"

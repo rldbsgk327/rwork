@@ -1,0 +1,14 @@
+"0","raw_welfare <- read.spss(""../data/Koweps_hpc10_2015_beta1.sav"", to.data.frame = T)
+"
+"2","Warning in read.spss(""../data/Koweps_hpc10_2015_beta1.sav"", to.data.frame = T) :"
+"2","
+ "
+"2"," ../data/Koweps_hpc10_2015_beta1.sav: Compression bias (0) is not the usual value of 100
+"
+"0","raw_welfare <- read.spss(""../data/Koweps_hpc10_2015_beta1.sav"", to.data.frame = T)"
+"2","Warning in read.spss(""../data/Koweps_hpc10_2015_beta1.sav"", to.data.frame = T) :"
+"2","
+ "
+"2"," ../data/Koweps_hpc10_2015_beta1.sav: Compression bias (0) is not the usual value of 100
+"
+"0","welfare <- raw_welfare"
